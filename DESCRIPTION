@@ -1,0 +1,16 @@
+Package: AoC2017
+Title: A solver for Advent of Code 2017
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Dan",
+           family = "Halligan",
+           role = c("aut", "cre"),
+           email = "dan.halligan@fiosgenomics.com")
+Description: This package (hopefully) solves Advent of Code problems.
+License: use_mit_license()
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports:
+    purrr
