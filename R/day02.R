@@ -5,16 +5,21 @@ div <- function(r) {
 }
 
 #' @export
-read_input.day2 <- function(x) {
-  read.table(x$file)
+#' @importFrom purrr map
+#' @importFrom stringr str_split
+read_input.day2 <- function(x, file = x$file){
+  readr::read_lines(file) |>
+    str_split(" ") |>
+    map(~ as.numeric(.x))
 }
 
+#' @importFrom purrr map_dbl
 #' @export
 part1.day2 <- function(x) {
-  sum(apply(input(x), 1, max) - apply(input(x), 1, min))
+  input(x) |> map_dbl(~ diff(range(.x))) |> sum()
 }
 
 #' @export
 part2.day2 <- function(x) {
-  sum(apply(input(x), 1, div))
+  input(x) |> map_dbl(~ div(.x)) |> sum()
 }

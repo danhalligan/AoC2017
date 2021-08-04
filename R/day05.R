@@ -1,6 +1,3 @@
-#' @export
-read_input.day5 <- function(x) scan(x$file, what = integer(), quiet = TRUE)
-
 execute <- function(offsets, inc = function(x) x + 1) {
   i <- 1
   count <- 0

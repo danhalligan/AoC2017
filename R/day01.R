@@ -3,8 +3,8 @@ shift <- function(v, s) {
 }
 
 #' @export
-read_input.day1 <- function(x) {
-  readLines(x$file)[[1]] |>
+read_input.day1 <- function(x, file = x$file) {
+  readLines(file)[[1]] |>
     strsplit('') |>
     unlist() |>
     as.numeric()

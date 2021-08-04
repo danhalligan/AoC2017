@@ -1,5 +1,5 @@
 #' @export
-read_input.day4 <- function(x) readLines(x$file)
+read_input.day4 <- function(x, file = x$file) readLines(file)
 
 #' @export
 part1.day4 <- function(x) {
