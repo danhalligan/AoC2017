@@ -4,12 +4,17 @@ div <- function(r) {
   v[2, i] / v[1, i]
 }
 
-day2p1 <- function(input) {
-  x <- read.table(input)
-  sum(apply(x, 1, max) - apply(x, 1, min))
+#' @export
+read_input.day2 <- function(x) {
+  read.table(x$file)
 }
 
-day2p2 <- function(input) {
-  x <- read.table(input)
-  sum(apply(x, 1, div))
+#' @export
+part1.day2 <- function(x) {
+  sum(apply(input(x), 1, max) - apply(input(x), 1, min))
+}
+
+#' @export
+part2.day2 <- function(x) {
+  sum(apply(input(x), 1, div))
 }
