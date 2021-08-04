@@ -15,7 +15,13 @@ guess_day <- function(file) {
   as.numeric(stringr::str_extract(file, "\\d+"))
 }
 
-read_input <- function(x, ...) UseMethod("read_input")
+read_input <- function(x, file) UseMethod("read_input")
+
+# read a single number
+#' @export
+read_input.default <- function(x, file = x$file) {
+  scan(file, what = numeric(), quiet = TRUE)
+}
 
 set_input <- function(x, ...) {
   x$input <- read_input(x)

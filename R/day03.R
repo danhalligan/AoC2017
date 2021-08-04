@@ -1,5 +1,5 @@
 # Return x, y coordinates from a counterclockwise spiral starting at 1
-coord <- function(i) {
+spiral_coord <- function(i) {
   i <- i - 1
   j <- round(sqrt(i))
   k <- abs(j^2 - i) - j
@@ -14,7 +14,7 @@ neighbours <- function(p) {
 
 # sum of neighbouring coordinates
 nsum <- function(x, p) {
-  x[neighbours(coord(p))] |>
+  x[neighbours(spiral_coord(p))] |>
     purrr::discard(is.null) |>
     unlist() |>
     sum()
@@ -22,12 +22,12 @@ nsum <- function(x, p) {
 
 # convert coordinate to a string for sparse matrix
 pos <- function(p) {
-  paste(coord(p), collapse = ",")
+  paste(spiral_coord(p), collapse = ",")
 }
 
 #' @export
 part1.day3 <- function(x) {
-  sum(abs(coord(input(x))))
+  sum(abs(spiral_coord(input(x))))
 }
 
 #' @export
