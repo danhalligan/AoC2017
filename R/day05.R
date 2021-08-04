@@ -1,3 +1,6 @@
+#' @export
+read_input.day5 <- function(x) scan(x$file, what = integer(), quiet = TRUE)
+
 execute <- function(offsets, inc = function(x) x + 1) {
   i <- 1
   count <- 0
@@ -10,13 +13,12 @@ execute <- function(offsets, inc = function(x) x + 1) {
   count
 }
 
-# offsets <- c(0, 3, 0, 1, -3)
-day5p1 <- function(file) {
-  offsets <- scan(file, what = integer())
-  execute(offsets)
+#' @export
+part1.day5 <- function(x) {
+  execute(input(x))
 }
 
-day5p2 <- function(file) {
-  offsets <- scan(file, what = integer())
-  execute(offsets, function(x) x + if (x >= 3) -1 else 1)
+#' @export
+part2.day5 <- function(x) {
+  execute(input(x), function(x) x + if (x >= 3) -1 else 1)
 }

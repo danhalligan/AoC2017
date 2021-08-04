@@ -6,14 +6,31 @@
 #' @export
 solve_day <- function(file, day = guess_day(file)) {
   stopifnot(is.numeric(day) && day >= 1 && day <= 25)
-  cat("Part1:", guess_fn(day, 1)(file), "\n")
-  cat("Part2:", guess_fn(day, 2)(file), "\n")
+  x <- day(day, file = file) |> set_input()
+  cat("Part1:", part1(x), "\n")
+  cat("Part2:", part2(x), "\n")
 }
 
 guess_day <- function(file) {
   as.numeric(stringr::str_extract(file, "\\d+"))
 }
 
-guess_fn <- function(day, part) {
-  match.fun(paste0("day", day, "p", part))
+read_input <- function(x, ...) UseMethod("read_input")
+
+set_input <- function(x, ...) {
+  x$input <- read_input(x)
+  x
+}
+
+input <- function(x) x$input
+
+part1 <- function(x) UseMethod("part1")
+
+part2 <- function(x) UseMethod("part2")
+
+day <- function(day = c(), file = NULL, input = NULL) {
+  structure(
+    .Data = list(input = input, file = file),
+    class = c(paste0("day", day), "day")
+  )
 }

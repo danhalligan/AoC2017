@@ -1,3 +1,4 @@
+# Return x, y coordinates from a counterclockwise spiral starting at 1
 coord <- function(i) {
   i <- i - 1
   j <- round(sqrt(i))
@@ -24,17 +25,19 @@ pos <- function(p) {
   paste(coord(p), collapse = ",")
 }
 
-day3p1 <- function() {
-  sum(abs(coord(325489)))
+#' @export
+part1.day3 <- function(x) {
+  sum(abs(coord(input(x))))
 }
 
-day3p2 <- function() {
-  x <- list()
-  x[pos(1)] <- 1
+#' @export
+part2.day3 <- function(x) {
+  l <- list()
+  l[pos(1)] <- 1
   i <- 2
-  while (x[pos(i-1)] < 325489) {
-    x[pos(i)] <- nsum(x, i)
+  while (l[pos(i-1)] < input(x)) {
+    l[pos(i)] <- nsum(l, i)
     i <- i +1
   }
-  x[pos(i-1)]
+  l[[pos(i-1)]]
 }

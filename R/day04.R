@@ -1,18 +1,21 @@
-day4p1 <- function(input) {
-  x <- readLines(input)
-  strsplit(x, " ") |>
+#' @export
+read_input.day4 <- function(x) readLines(x$file)
+
+#' @export
+part1.day4 <- function(x) {
+  strsplit(input(x), " ") |>
     purrr::map_lgl(~ !any(duplicated(.x))) |>
     sum()
 }
 
 sort_words <- function(x) {
   strsplit(x, "") |>
-    map(~ paste(sort(.x), collapse = ""))
+    purrr::map(~ paste(sort(.x), collapse = ""))
 }
 
-day4p2 <- function(input) {
-  x <- readLines(input)
-  strsplit(x, " ") |>
+#' @export
+part2.day4 <- function(x) {
+  strsplit(input(x), " ") |>
     purrr::map_lgl(~ !any(duplicated(sort_words(.x)))) |>
     sum()
 }
