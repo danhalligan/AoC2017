@@ -11,11 +11,11 @@ execute <- function(offsets, inc = function(x) x + 1) {
 }
 
 #' @export
-part1.day5 <- function(x) {
+part1.day5 <- function(x, ...) {
   execute(input(x))
 }
 
 #' @export
-part2.day5 <- function(x) {
+part2.day5 <- function(x, ...) {
   execute(input(x), function(x) x + if (x >= 3) -1 else 1)
 }

@@ -23,8 +23,6 @@ solve_all <- function(dir) {
 #' @importFrom crayon green
 #' @export
 solve_day <- function(file = NULL, day = NULL, input = NULL) {
-  if (!is.null(file) && is.null(day)) day <- guess_day(file)
-  stopifnot(is.numeric(day) && day >= 1 && day <= 25)
   x <- day(day, file = file, input = input)
   cat("Part 1:", green(part1(x)), "\n")
   cat("Part 2:", green(part2(x)), "\n")
@@ -50,18 +48,20 @@ set_input <- function(x, ...) {
 
 input <- function(x) x$input
 
-part1 <- function(x) UseMethod("part1")
+part1 <- function(x, ...) UseMethod("part1")
 
-part2 <- function(x) UseMethod("part2")
-
-#' @export
-part1.default <- function(x) NULL
+part2 <- function(x, ...) UseMethod("part2")
 
 #' @export
-part2.default <- function(x) NULL
+part1.default <- function(x, ...) NULL
 
-day <- function(day = c(), file = NULL, input = NULL) {
+#' @export
+part2.default <- function(x, ...) NULL
+
+day <- function(day = NULL, file = NULL, input = NULL) {
   if (!is.null(file)) stopifnot(file.exists(file))
+  if (!is.null(file) && is.null(day)) day <- guess_day(file)
+  stopifnot(is.numeric(day) && day >= 1 && day <= 25)
   x <- structure(
     .Data = list(input = input, file = file),
     class = c(paste0("day", day), "day")

@@ -11,13 +11,13 @@ read_input.day1 <- function(x, file = x$file) {
 }
 
 #' @export
-part1.day1 <- function(x) {
+part1.day1 <- function(x, ...) {
   v <- input(x)
   sum(v[v == rotate(v, 1)])
 }
 
 #' @export
-part2.day1 <- function(x) {
+part2.day1 <- function(x, ...) {
   v <- input(x)
   sum(v[v == rotate(v, length(v)/2)])
 }

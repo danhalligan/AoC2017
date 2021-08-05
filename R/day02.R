@@ -15,11 +15,11 @@ read_input.day2 <- function(x, file = x$file){
 
 #' @importFrom purrr map_dbl
 #' @export
-part1.day2 <- function(x) {
+part1.day2 <- function(x, ...) {
   input(x) |> map_dbl(~ diff(range(.x))) |> sum()
 }
 
 #' @export
-part2.day2 <- function(x) {
+part2.day2 <- function(x, ...) {
   input(x) |> map_dbl(~ div(.x)) |> sum()
 }

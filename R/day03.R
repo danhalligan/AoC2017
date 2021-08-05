@@ -26,12 +26,12 @@ pos <- function(p) {
 }
 
 #' @export
-part1.day3 <- function(x) {
+part1.day3 <- function(x, ...) {
   sum(abs(spiral_coord(input(x))))
 }
 
 #' @export
-part2.day3 <- function(x) {
+part2.day3 <- function(x, ...) {
   l <- list()
   l[pos(1)] <- 1
   i <- 2

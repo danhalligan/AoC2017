@@ -26,12 +26,12 @@ redistribute <- function(blocks) {
 }
 
 #' @export
-part1.day6 <- function(x) {
+part1.day6 <- function(x, ...) {
   redistribute(input(x))$cycles
 }
 
 #' @export
-part2.day6 <- function(x) {
+part2.day6 <- function(x, ...) {
   res <- redistribute(input(x))
   res$cycles - res$seen[[res$final]]
 }
