@@ -9,7 +9,7 @@ div <- function(r) {
 #' @importFrom stringr str_split
 read_input.day2 <- function(x, file = x$file){
   readr::read_lines(file) |>
-    str_split(" ") |>
+    str_split("\\s+") |>
     map(~ as.numeric(.x))
 }
 

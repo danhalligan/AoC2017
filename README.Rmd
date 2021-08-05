@@ -1,12 +1,26 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
 # AoC2017
 
 AoC2017 is an R package solver for Advent of Code 2017.
 
 ## Installation
 
-You can install the released version of AoC2017 from [GitHub](https://github.com/) with:
+You can install the released version of AoC2017 from
+[GitHub](https://github.com/) with:
 
 ``` r
 devtools::install_github("danhalligan/AoC2017")
@@ -14,7 +28,9 @@ devtools::install_github("danhalligan/AoC2017")
 
 ## Example
 
-To solve a specific day, you can use `solve_day`, passing in the input for the current day.
+To solve a specific day, you can use `solve_day`, passing in the input for
+the current day.
+
 
 ``` r
 library(AoC2017)
@@ -28,11 +44,10 @@ If day is not provided it is guessed from the filename.
 solve_day(file = "day1-input.txt")
 ```
 
-Alternatively, some questions only require a short integer to be provided as input:
+Alternatively, some questions only require a short integer to be provided as
+input:
 
-``` r
+```{r}
 library(AoC2017)
 solve_day(day = 3, input = 1024)
-#> Part 1: 31 
-#> Part 2: 1968
 ```

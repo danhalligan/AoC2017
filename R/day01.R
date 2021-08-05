@@ -1,4 +1,4 @@
-shift <- function(v, s) {
+rotate <- function(v, s) {
   c(tail(v, s), head(v, -s))
 }
 
@@ -13,11 +13,11 @@ read_input.day1 <- function(x, file = x$file) {
 #' @export
 part1.day1 <- function(x) {
   v <- input(x)
-  sum(v[v == shift(v, 1)])
+  sum(v[v == rotate(v, 1)])
 }
 
 #' @export
 part2.day1 <- function(x) {
   v <- input(x)
-  sum(v[v == shift(v, length(v)/2)])
+  sum(v[v == rotate(v, length(v)/2)])
 }
