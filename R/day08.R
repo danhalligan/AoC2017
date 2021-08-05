@@ -3,10 +3,6 @@ read_input.day8 <- function(x, file = x$file) {
   readr::read_lines(file)
 }
 
-as_val <- function(reg, v) {
-  if (stringr::str_detect(v, "\\d+")) as.numeric(v) else reg[[v]]
-}
-
 #' @importFrom purrr walk
 #' @importFrom stringr str_extract str_replace
 compute_register <- function(x) {
@@ -29,11 +25,11 @@ compute_register <- function(x) {
 }
 
 #' @export
-part1.day8 <- function(x) {
+part1.day8 <- function(x, ...) {
   compute_register(x)$final
 }
 
 #' @export
-part2.day8 <- function(x) {
+part2.day8 <- function(x, ...) {
   compute_register(x)$any
 }

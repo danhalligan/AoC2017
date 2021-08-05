@@ -2,7 +2,7 @@
 read_input.day4 <- function(x, file = x$file) readLines(file)
 
 #' @export
-part1.day4 <- function(x) {
+part1.day4 <- function(x, ...) {
   strsplit(input(x), " ") |>
     purrr::map_lgl(~ !any(duplicated(.x))) |>
     sum()
@@ -14,7 +14,7 @@ sort_words <- function(x) {
 }
 
 #' @export
-part2.day4 <- function(x) {
+part2.day4 <- function(x, ...) {
   strsplit(input(x), " ") |>
     purrr::map_lgl(~ !any(duplicated(sort_words(.x)))) |>
     sum()

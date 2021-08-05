@@ -43,7 +43,7 @@ singleton <- function(x) {
 # Root is found by picking a random start and iteratively finding parent
 
 #' @export
-part1.day7 <- function(x) {
+part1.day7 <- function(x, ...) {
   rmap <- rmap(input(x))
   v <- rmap[[1]]
   while (!is.null(rmap[[v]])) v <- rmap[[v]]
@@ -56,7 +56,7 @@ part1.day7 <- function(x) {
 # to adjust the weight of this node.
 
 #' @export
-part2.day7 <- function(x) {
+part2.day7 <- function(x, ...) {
   node <- part1(x)
   fmap <- fmap(input(x))
   while (unbalanced(fmap, node)) {

@@ -15,7 +15,9 @@ RoxygenNote: 7.1.1
 Imports:
     cli,
     crayon,
+    dplyr,
     fs,
+    magrittr,
     purrr,
     Rcpp,
     readr,
