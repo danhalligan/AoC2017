@@ -6,7 +6,7 @@ Authors@R:
            family = "Halligan",
            role = c("aut", "cre"),
            email = "dan.halligan@fiosgenomics.com")
-Description: This package (hopefully) solves Advent of Code problems.
+Description: This package (hopefully) solves Advent of Code 2017 problems.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -19,9 +19,9 @@ Imports:
     fs,
     magrittr,
     purrr,
-    Rcpp,
     readr,
     stringr,
+    tidyr
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
