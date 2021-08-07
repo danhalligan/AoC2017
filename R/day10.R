@@ -21,6 +21,15 @@ sparse_hash <- function(x, size = 256, reps = 1) {
   seq
 }
 
+knot_hash <- function(x, size = 256) {
+  c(utf8ToInt(x), 17, 31, 73, 47, 23) |>
+    sparse_hash(size, 64) |>
+    split(rep(1:16, each = 16)) |>
+    map_int(~ reduce(.x, bitwXor)) |>
+    as.hexmode() |>
+    paste(collapse = "")
+}
+
 #' @importFrom magrittr extract
 #' @export
 part1.day10 <- function(x, size = 256, ...) {
@@ -36,10 +45,5 @@ part1.day10 <- function(x, size = 256, ...) {
 #' @importFrom purrr reduce map_int
 #' @export
 part2.day10 <- function(x, size = 256, ...) {
-  c(utf8ToInt(input(x)), 17, 31, 73, 47, 23) |>
-    sparse_hash(size, 64) |>
-    split(rep(1:16, each = 16)) |>
-    map_int(~ reduce(.x, bitwXor)) |>
-    as.hexmode() |>
-    paste(collapse = "")
+  knot_hash(input(x), size = size)
 }
