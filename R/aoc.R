@@ -66,6 +66,6 @@ day <- function(day = NULL, file = NULL, input = NULL) {
     .Data = list(input = input, file = file),
     class = c(paste0("day", day), "day")
   )
-  if (!is.null(file)) x <- set_input(x)
+  if (!is.null(file) && is.null(input)) x <- set_input(x)
   x
 }

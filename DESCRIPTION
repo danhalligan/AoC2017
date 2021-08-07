@@ -1,7 +1,7 @@
 Package: AoC2017
 Title: A solver for Advent of Code 2017
 Version: 0.0.0.9000
-Authors@R: 
+Authors@R:
     person(given = "Dan",
            family = "Halligan",
            role = c("aut", "cre"),
@@ -20,8 +20,13 @@ Imports:
     magrittr,
     purrr,
     readr,
+    Rcpp,
+    R.utils,
     stringr,
+    tibble,
     tidyr
-Suggests: 
+Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+LinkingTo: 
+    Rcpp
