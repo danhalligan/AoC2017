@@ -95,3 +95,7 @@ test_that("day 15 works", {
   expect_part(15, 1, 588, input = c(65, 8921))
   expect_part(15, 2, 309, input = c(65, 8921))
 })
+
+# test_that("day 16 works", {
+#   expect_part(15, 1, "baedc", size = 5, input = c("s1", "x3/4", "pe/b"))
+# })

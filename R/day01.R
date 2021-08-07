@@ -19,5 +19,5 @@ part1.day1 <- function(x, ...) {
 #' @export
 part2.day1 <- function(x, ...) {
   v <- input(x)
-  sum(v[v == rotate(v, length(v)/2)])
+  sum(v[v == rotate(v, length(v) / 2)])
 }
