@@ -2,6 +2,9 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 # AoC2017
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/danhalligan/AoC2017/workflows/R-CMD-check/badge.svg)](https://github.com/danhalligan/AoC2017/actions) <!-- badges: end -->
+
 AoC2017 is an R package solver for Advent of Code 2017.
 
 ## Installation

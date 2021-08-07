@@ -1,3 +1,5 @@
 ^README\.Rmd$
 ^LICENSE\.md$
 ^inputs
+^\.travis\.yml$
+^\.github$
