@@ -39,21 +39,21 @@ part1.day14 <- function(x, ...) {
 part2.day14 <- function(x, ...) {
   grid <- input(x) |> disk_grid()
   d <- nrow(grid)
-  connections <- tibble(
-      fx = rep(seq(1, d), d * 5),
-      fy = rep(seq(1, d), each = d * 5),
-      dir = rep(c("S", "U", "D", "L", "R"), d * d),
+  tibble(
+      fx = rep(seq(1, d), d * 3),
+      fy = rep(seq(1, d), each = d * 3),
+      dir = rep(c("S", "D", "R"), d * d),
     ) |>
     mutate(
-      tx = case_when(dir == "L" ~ fx-1, dir == "R" ~ fx+1, TRUE ~ as.double(fx)),
-      ty = case_when(dir == "U" ~ fy-1, dir == "D" ~ fy+1, TRUE ~ as.double(fy))
+      tx = case_when(dir == "R" ~ fx + 1L, TRUE ~ fx),
+      ty = case_when(dir == "D" ~ fy + 1L, TRUE ~ fy)
     ) |>
-    filter(tx >= 1, tx <= d, ty >= 1, ty <= d) |>
+    filter(tx <= d, ty <= d) |>
     filter(grid[cbind(fx, fy)] & grid[cbind(tx, ty)]) |>
     transmute(
       c1 = paste(fx, fy, sep = ","),
       c2 = paste(tx, ty, sep = ",")
     ) |>
-    connected()
-  length(connections)
+    connected() |>
+    length()
 }
