@@ -36,10 +36,23 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// day17p2
+int day17p2(long offset, long n);
+RcppExport SEXP _AoC2017_day17p2(SEXP offsetSEXP, SEXP nSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< long >::type offset(offsetSEXP);
+    Rcpp::traits::input_parameter< long >::type n(nSEXP);
+    rcpp_result_gen = Rcpp::wrap(day17p2(offset, n));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_AoC2017_day15p1", (DL_FUNC) &_AoC2017_day15p1, 3},
     {"_AoC2017_day15p2", (DL_FUNC) &_AoC2017_day15p2, 3},
+    {"_AoC2017_day17p2", (DL_FUNC) &_AoC2017_day17p2, 2},
     {NULL, NULL, 0}
 };
 
