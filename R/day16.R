@@ -8,6 +8,7 @@ read_input.day16 <- function(x, file = x$file) {
   scan(file, character(), sep = ",")
 }
 
+#' @importFrom stringr str_sub
 move <- function(x) {
   s <- str_sub(x, 1, 1)
   switch(s, "s" = spin, "x" = exchange, "p" = partner)(x)
