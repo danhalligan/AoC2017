@@ -24,3 +24,14 @@ int day15p2(long sa, long sb, long n) {
   }
   return(count);
 }
+
+// [[Rcpp::export]]
+int day17p2(long offset, long n) {
+  long pos = 0;
+  int save = 1;
+  for (long val = 1; val <= 5e7; val++) {
+    pos = (pos + offset) % val + 1;
+    if (pos == 1) save = val;
+  }
+  return(save);
+}

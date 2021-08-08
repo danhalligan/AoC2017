@@ -9,3 +9,7 @@ day15p2 <- function(sa, sb, n) {
     .Call('_AoC2017_day15p2', PACKAGE = 'AoC2017', sa, sb, n)
 }
 
+day17p2 <- function(offset, n) {
+    .Call('_AoC2017_day17p2', PACKAGE = 'AoC2017', offset, n)
+}
+
