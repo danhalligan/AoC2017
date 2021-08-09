@@ -1,8 +1,3 @@
-#' @export
-read_input.day17 <- function(x, file = x$file) {
-  scan(file, character(), sep = ",")
-}
-
 insert <- function(x, pos, val) {
   c(head(x, pos - 1), val, tail(x, -pos + 1))
 }
