@@ -103,3 +103,7 @@ test_that("day 16 works", {
 test_that("day 17 works", {
   expect_part(17, 1, 638, input = 3)
 })
+
+test_that("day 18 works", {
+  expect_part(18, 1, 4)
+})
