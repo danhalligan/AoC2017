@@ -1,7 +1,3 @@
-rotate <- function(v, s) {
-  c(tail(v, s), head(v, -s))
-}
-
 #' @export
 read_input.day1 <- function(x, file = x$file) {
   readLines(file)[[1]] |>

@@ -36,12 +36,9 @@ unbalanced <- function(fmap, x) {
   any(sums[1] != sums)
 }
 
-singleton <- function(x) {
-  x[!(duplicated(x) | duplicated(x, fromLast = TRUE))]
-}
+singleton <- function(x) x[is_unique(x)]
 
 # Root is found by picking a random start and iteratively finding parent
-
 #' @export
 part1.day7 <- function(x, ...) {
   rmap <- rmap(input(x))
@@ -68,6 +65,3 @@ part2.day7 <- function(x, ...) {
   target <- vals[which(duplicated(vals))[1]]
   as.numeric(target - sum(node_sum(fmap, names(bad))))
 }
-
-
-

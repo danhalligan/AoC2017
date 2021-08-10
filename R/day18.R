@@ -50,11 +50,6 @@ solo <- function(p, start = 0) {
   }
 }
 
-shift <- function(x) {
-  assign(as.character(substitute(x)), tail(x, -1), parent.frame())
-  head(x, 1)
-}
-
 #' @export
 part1.day18 <- function(x, ...) {
   solo(input(x))() |> tail(n = 1)

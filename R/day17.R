@@ -1,7 +1,3 @@
-insert <- function(x, pos, val) {
-  c(head(x, pos - 1), val, tail(x, -pos + 1))
-}
-
 # vector rather than linked list.
 spinlock <- function(offset, n = 2017) {
   x <- 0
