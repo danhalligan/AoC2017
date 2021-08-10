@@ -5,7 +5,7 @@
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/danhalligan/AoC2017/workflows/R-CMD-check/badge.svg)](https://github.com/danhalligan/AoC2017/actions) <!-- badges: end -->
 
-AoC2017 is an R package solver for Advent of Code 2017.
+AoC2017 is an R package that is intended to solve problems from [Advent of Code 2017](https://adventofcode.com/2017). Some of the solutions run relatively slowly and perhaps could be implemented better. In some cases, I've used C++ to speed up the computations where I felt further optimisation was not possible in R directly...
 
 ## Installation
 

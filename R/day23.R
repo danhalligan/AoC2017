@@ -89,8 +89,8 @@ part1.day23 <- function(x, ...) {
 # }
 
 # From above we can see we're searching for pairs of numbers that multiply to b
-# Instead, we can ask which numbers (between 2 and sqrt(b)) are divisible with
-# no remainder (using modulo).
+# Instead, we can ask if numbers (between 2 and sqrt(b)) are divisible with
+# no remainder (using modulo) (if so, then they are a divisor of b)
 # part2.day23 <- function(x, ...) {
 #   b <- 109300
 #   c <- 126300
@@ -109,14 +109,12 @@ part1.day23 <- function(x, ...) {
 # }
 
 # Further simplifying the above and naming what we're doing.
-is_prime <- function(x) {
-  for (d in 2:sqrt(x)) {
-    if (x %% d == 0)  return(FALSE)
-  }
+prime <- function(x) {
+  for (d in 2:sqrt(x)) if (x %% d == 0) return(FALSE)
   TRUE
 }
 
 #' @export
 part2.day23 <- function(x, ...) {
-  map_lgl(seq(109300, 126300, 17), ~ !is_prime(.x)) |> sum()
+  map_lgl(seq(109300, 126300, 17), ~ !prime(.x)) |> sum()
 }
