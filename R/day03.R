@@ -6,7 +6,7 @@ spiral_coord <- function(i) {
   (c(k, -k) + j^2 - i - (j %% 2)) * 0.5 * (-1)^j
 }
 
-# get neightbouring coordinates of a position
+# get neighbouring coordinates of a position
 neighbours <- function(p) {
   g <- expand.grid((p[1]-1):(p[1]+1), (p[2]-1):(p[2]+1))
   apply(g, 1, paste, collapse = ",")[-5]

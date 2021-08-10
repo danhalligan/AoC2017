@@ -4,8 +4,6 @@ read_input.day10 <- function(x, file = x$file) {
   read_lines(file)
 }
 
-wrapn <- function(x, n) (x - 1) %% n + 1
-
 sparse_hash <- function(x, size = 256, reps = 1) {
   seq <- seq(0, length.out = size)
   pos <- 1
