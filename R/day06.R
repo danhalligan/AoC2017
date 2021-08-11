@@ -10,16 +10,16 @@ spread_blocks <- function(blocks) {
   blocks
 }
 
-hash <- function(x) paste(x, collapse = ",")
+hash_vec <- function(x) paste(x, collapse = ",")
 
 redistribute <- function(blocks) {
   seen <- list()
   cycles <- 0
-  str <- hash(blocks)
+  str <- hash_vec(blocks)
   while (is.null(seen[[str]])) {
     seen[[str]] <- cycles
     blocks <- spread_blocks(blocks)
-    str <- hash(blocks)
+    str <- hash_vec(blocks)
     cycles <- cycles + 1
   }
   list(cycles = cycles, seen = seen, final = str)
