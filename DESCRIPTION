@@ -17,7 +17,6 @@ Imports:
     crayon,
     dplyr,
     fs,
-    hash,
     magrittr,
     memoise,
     purrr,
