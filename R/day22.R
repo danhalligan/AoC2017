@@ -15,14 +15,6 @@ read_input.day22 <- function(x, file = x$file, pad = 1000) {
   grid
 }
 
-# Codes are 0: up, 1: right, 2: down, 3: left
-move <- function(p, dir) {
-  list(
-    c(p[1] - 1, p[2]), c(p[1], p[2] + 1),
-    c(p[1] + 1, p[2]), c(p[1], p[2] - 1)
-  )[[dir + 1]]
-}
-
 print_grid <- function(grid, pos) {
   for (i in seq_len(nrow(grid))) {
     for (j in seq_len(ncol(grid))) {
@@ -37,6 +29,14 @@ print_grid <- function(grid, pos) {
 }
 
 evolve_grid <- function(grid, n, turn, update, infected = 1, print = FALSE) {
+  # Codes are 0: up, 1: right, 2: down, 3: left
+  move <- function(p, dir) {
+    list(
+      c(p[1] - 1, p[2]), c(p[1], p[2] + 1),
+      c(p[1] + 1, p[2]), c(p[1], p[2] - 1)
+    )[[dir + 1]]
+  }
+
   grid[grid == 1] <- infected # change infected status
   mid <- (sqrt(length(grid)) + 1) / 2
   p <- c(mid, mid)
