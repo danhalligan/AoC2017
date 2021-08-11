@@ -33,16 +33,16 @@ guess_day <- function(file) {
   as.numeric(str_extract(file, "\\d+"))
 }
 
-read_input <- function(x, file) UseMethod("read_input")
+read_input <- function(x, file, ...) UseMethod("read_input")
 
 # read a single number
 #' @export
-read_input.default <- function(x, file = x$file) {
+read_input.default <- function(x, file = x$file, ...) {
   scan(file, what = numeric(), quiet = TRUE)
 }
 
 set_input <- function(x, ...) {
-  x$input <- read_input(x)
+  x$input <- read_input(x, ...)
   x
 }
 
@@ -58,7 +58,7 @@ part1.default <- function(x, ...) NULL
 #' @export
 part2.default <- function(x, ...) NULL
 
-day <- function(day = NULL, file = NULL, input = NULL) {
+day <- function(day = NULL, file = NULL, input = NULL, ...) {
   if (!is.null(file)) stopifnot(file.exists(file))
   if (!is.null(file) && is.null(day)) day <- guess_day(file)
   stopifnot(is.numeric(day) && day >= 1 && day <= 25)
@@ -66,6 +66,6 @@ day <- function(day = NULL, file = NULL, input = NULL) {
     .Data = list(input = input, file = file),
     class = c(paste0("day", day), "day")
   )
-  if (!is.null(file) && is.null(input)) x <- set_input(x)
+  if (!is.null(file) && is.null(input)) x <- set_input(x, ...)
   x
 }
