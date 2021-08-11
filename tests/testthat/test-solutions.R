@@ -125,6 +125,10 @@ test_that("day 22 works", {
 })
 
 test_that("day 24 works", {
-  expect_part(23, 1, 31)
-  expect_part(23, 2, 19)
+  expect_part(24, 1, 31)
+  expect_part(24, 2, 19)
+})
+
+test_that("day 25 works", {
+  expect_part(25, 1, 3)
 })

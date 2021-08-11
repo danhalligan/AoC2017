@@ -15,7 +15,7 @@ follow_path <- function(path, end = "T") {
   u <- function(p) c(p[1] - 1, p[2])
   d <- function(p) c(p[1] + 1, p[2])
 
-  move <- function(dir, p) switch(dir, "U" = u, "R" = r, "L" = l, "D" = d)(p)
+  move_dir <- function(dir, p) switch(dir, "U" = u, "R" = r, "L" = l, "D" = d)(p)
   is_letter <- function(p) str_detect(p, "[A-Z]")
 
   p <- c(1, which(path[1, ] == "|"))
@@ -30,7 +30,7 @@ follow_path <- function(path, end = "T") {
         dir <- if (m(u(p)) == "|" || is_letter(m(u(p)))) "U" else "D"
       }
     }
-    p <- move(dir, p)
+    p <- move_dir(dir, p)
     count <- count + 1
     if (is_letter(m(p))) sequence <- c(sequence, m(p))
   }
