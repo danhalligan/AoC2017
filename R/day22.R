@@ -47,7 +47,6 @@ evolve_grid <- function(grid, n, turn, update, infected = 1, print = FALSE) {
     grid[p[1], p[2]] <- update(grid[p[1], p[2]])
     if (grid[p[1], p[2]] == infected) infections <- infections + 1
     p <- move(p, dir)
-    # print_grid(grid, p)
   }
   if (print) print_grid(grid, p)
   infections
