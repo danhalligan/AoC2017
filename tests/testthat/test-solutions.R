@@ -116,3 +116,15 @@ test_that("day 19 works", {
 test_that("day 21 works", {
   expect_part(21, 1, 12, reps = 2)
 })
+
+test_that("day 22 works", {
+  expect_part(22, 1, 41, n = 70)
+  expect_part(22, 1, 5587, n = 10000)
+  expect_part(22, 2, 26, n = 100)
+  # expect_part(22, 2, 2511944, n = 10000000) # takes a while!
+})
+
+test_that("day 24 works", {
+  expect_part(23, 1, 31)
+  expect_part(23, 2, 19)
+})
