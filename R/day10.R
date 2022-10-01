@@ -25,6 +25,7 @@ knot_hash <- function(x, size = 256) {
     split(rep(1:16, each = 16)) |>
     map_int(~ reduce(.x, bitwXor)) |>
     as.hexmode() |>
+    sprintf(fmt = "%02x") |>
     paste(collapse = "")
 }
 
